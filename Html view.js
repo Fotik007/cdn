@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View HTML Code with Captcha</title>
+    <title>Open HTML Page with Captcha</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,46 +39,18 @@
             background-color: #ccc;
             cursor: not-allowed;
         }
-        #html-content {
-            display: none;
-            margin-top: 20px;
-            text-align: left;
-        }
-        pre {
-            background-color: #f8f8f8;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>View HTML Code</h2>
+    <h2>Open HTML Page</h2>
     <div class="captcha">
         Enter the number: <span id="random-number"></span>
     </div>
     <input type="text" id="captcha-input" placeholder="Enter the number here">
     <br><br>
-    <button id="view-btn" disabled>View HTML Code</button>
-    <div id="html-content">
-        <h3>HTML Code:</h3>
-        <pre>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Example HTML&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;This is a saved HTML file&lt;/h1&gt;
-    &lt;p&gt;Hello, World!&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-        </pre>
-    </div>
+    <button id="open-btn" disabled>Open HTML Page</button>
 </div>
 
 <script>
@@ -91,19 +63,20 @@
         document.getElementById('random-number').textContent = randomNumber;
 
         const captchaInput = document.getElementById('captcha-input');
-        const viewBtn = document.getElementById('view-btn');
-        const htmlContent = document.getElementById('html-content');
+        const openBtn = document.getElementById('open-btn');
 
         captchaInput.addEventListener('input', function() {
             if (captchaInput.value == randomNumber) {
-                viewBtn.disabled = false;
+                openBtn.disabled = false;
             } else {
-                viewBtn.disabled = true;
+                openBtn.disabled = true;
             }
         });
 
-        viewBtn.addEventListener('click', function() {
-            htmlContent.style.display = 'block';
+        openBtn.addEventListener('click', function() {
+            // Replace with the actual URL of the HTML page to open
+            const nextPageUrl = 'nextpage.html';
+            window.open(nextPageUrl, '_blank');
         });
     });
 </script>
